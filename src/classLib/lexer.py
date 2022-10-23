@@ -3,10 +3,17 @@ odd_characters = "()"
 char = "abcdefghijklmnopqrstuvwxyz"
 # error
 class Error:
-    def __init__(self, error, start_pos, data):
+    def __init__(self, error, start_pos = 0, data=""):
         self.error = error
         self.start_pos = start_pos
-        
+        someinfo = data[start_pos:].split(" ")
+        self.end_pos = len(someinfo)
+        self.errorsection = someinfo[0]
+class UnknownPrefixError:
+    def __init__(self, error):
+        super().__init__(self)
+    def __repr__(self) -> str:
+        return f"ERROR: {self.error}, Segment: '{self.errorsection}, {self.start_pos} - {self.end_pos}'"
 # lexer 
 
 
