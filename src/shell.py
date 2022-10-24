@@ -3,5 +3,5 @@ while True:
     line = input("sora: ")
     tokens, error = lexer.run(line)
     if error:
-        print(lexerResult)
+        print(error)
     else: print("worked")
