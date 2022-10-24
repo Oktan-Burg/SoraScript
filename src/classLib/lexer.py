@@ -46,4 +46,4 @@ class Lexer:
 # execute
 def run(data):
     lexer = Lexer(data)
-    lexer.segmentTokenCommissioner()
+    return lexer.segmentTokenCommissioner()
