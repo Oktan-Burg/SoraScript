@@ -1,5 +1,5 @@
 numbers = "0123456789"
-odd_characters = "()"
+odd_characters = "()-"
 char = "abcdefghijklmnopqrstuvwxyz"
 # error
 class Error:
