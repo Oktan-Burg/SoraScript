@@ -14,7 +14,7 @@ class UnknownPrefixError(Error):
     def __init__(self, error, start_pos, data):
         super().__init__(error, start_pos, data)
         
-    def __repr__(self) -> str:
+    def __str__(self) -> str:
         return f"ERROR: {self.error}, Segment: '{self.errorsection}, {self.start_pos} - {self.end_pos}'"
 # lexer 
 
