@@ -3,15 +3,17 @@ odd_characters = "()"
 char = "abcdefghijklmnopqrstuvwxyz"
 # error
 class Error:
-    def __init__(self, error, start_pos = 0, data=""):
+    def __init__(self, error = "", start_pos = 0, data=""):
         self.error = error
         self.start_pos = start_pos
         someinfo = data[start_pos:].split(" ")
         self.end_pos = len(someinfo)
         self.errorsection = someinfo[0]
-class UnknownPrefixError:
-    def __init__(self, error):
-        super().__init__(self)
+
+class UnknownPrefixError(Error):
+    def __init__(self, error, start_pos, data):
+        super().__init__(error, start_pos, data)
+        
     def __repr__(self) -> str:
         return f"ERROR: {self.error}, Segment: '{self.errorsection}, {self.start_pos} - {self.end_pos}'"
 # lexer 
@@ -26,7 +28,7 @@ class Lexer:
         commands = ["echo", "exit", "print", "input", "def", "advanced", "import"]
         if not segment.prefix in commands:
             # UnknownPrefixError
-            return  
+            return  UnknownPrefixError()
     def segmentTokenCommissioner(self):
         for segment in self.commandSegments:
             prefix = None
