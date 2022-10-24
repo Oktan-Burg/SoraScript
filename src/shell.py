@@ -1,3 +1,7 @@
+from classLib import lexer
 while True:
     line = input("sora: ")
-    print(line)
+    lexerResult = lexer.run(line)
+    if lexerResult.error:
+        print(lexerResult)
+    else: print("worked")
