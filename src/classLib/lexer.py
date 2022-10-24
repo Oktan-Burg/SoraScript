@@ -41,7 +41,7 @@ class Lexer:
             elif subSegment[0] in char and subSegment[0][1] in char and not "=*$%#&^/\-+|'" in subSegment[0] and not '"' in subSegment[0] and not "`" in subSegment[0]:
                 segmentType = "Function"
                 prefix = subSegment[0]
-                self.functionTokenHandler({"args": segment[1:], "prefix": prefix, "commandSeg": self.SegmentIndex})
+                return self.functionTokenHandler({"args": segment[1:], "prefix": prefix, "commandSeg": self.SegmentIndex})
             self.SegmentIndex += 1
 # execute
 def run(data):
