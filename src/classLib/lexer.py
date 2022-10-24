@@ -28,8 +28,8 @@ class Lexer:
         commands = ["echo", "exit", "print", "input", "def", "advanced", "import"]
         if not commands[segment.prefix]:
             # UnknownPrefixError
-            return None, UnknownPrefixError("UnknownPrefixError", segment.prefix[0], self.commandSegments[self.SegmentIndex], self.SegmentIndex)
-        else: return segment, None
+            return False, UnknownPrefixError("UnknownPrefixError", segment.prefix[0], self.commandSegments[self.SegmentIndex], self.SegmentIndex)
+        else: return segment, False
     def segmentTokenCommissioner(self):
         
         for segment in self.commandSegments:
